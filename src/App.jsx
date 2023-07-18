@@ -3,7 +3,23 @@ import Input from "./components/Input/Input";
 import TodoList from "./components/TodoList/TodoList";
 
 function App() {
-  const [todoListData, setTodoList] = React.useState([]);
+  const [todoListData, setTodoList] = React.useState([
+    {
+      data: "Complete the research paper - WithIn (Tomorrow)",
+      id: 0,
+      isComplete: false,
+    },
+    {
+      data: "Organize a birthday party - With Family",
+      id: 1,
+      isComplete: false,
+    },
+    {
+      data: "Plan a home renovation project - Done",
+      id: 2,
+      isComplete: true,
+    },
+  ]);
   const [editing, setEditing] = React.useState(null);
   const inputFunc = (e) => {
     e.preventDefault();
