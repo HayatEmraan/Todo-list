@@ -1,6 +1,6 @@
 import React from "react";
 
-const Input = ({inputFunc}) => {
+const Input = ({ inputFunc, editing }) => {
   return (
     <>
       <h1 className="text-3xl font-bold font-Cinzel text-center mb-8">
@@ -8,6 +8,7 @@ const Input = ({inputFunc}) => {
       </h1>
       <form className="flex gap-4 mb-8" onSubmit={inputFunc}>
         <input
+          defaultValue={editing ? editing.data : ""}
           type="text"
           name="todoField"
           placeholder="Start typing ..."

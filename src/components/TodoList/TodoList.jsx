@@ -1,7 +1,11 @@
 import React from "react";
 
-const TodoList = ({ todoListData, handleDelete, handleComplete }) => {
-  console.log(todoListData);
+const TodoList = ({
+  todoListData,
+  handleDelete,
+  handleComplete,
+  handleEdit,
+}) => {
   return (
     <div>
       {todoListData.map((todo, index) => (
@@ -9,11 +13,16 @@ const TodoList = ({ todoListData, handleDelete, handleComplete }) => {
           key={index}
           className="shadow-lg p-3 mb-2 bg-[#fff4e6] rounded-md flex justify-between flex-wrap"
         >
-          <p className="text-3xl font-Cinzel">
+          <p
+            className={`${
+              todo.isComplete && "line-through"
+            } text-3xl font-Cinzel`}
+          >
             {index + 1}. {todo.data}
           </p>
           <div className="space-x-2">
             <button
+              onClick={() => handleEdit(todo)}
               className={`p-2 rounded-md ${
                 todo.isComplete ? "bg-gray-400" : "bg-orange-300"
               }`}
